@@ -2,7 +2,7 @@
     "name": "Frigate",
     "slug": "frigate",
     "categories": [
-        17
+        15
     ],
     "date_created": "2024-05-02",
     "type": "ct",
@@ -20,7 +20,7 @@
             "resources": {
                 "cpu": 4,
                 "ram": 4096,
-                "hdd": 40,
+                "hdd": 20,
                 "os": "debian",
                 "version": "11"
             }
