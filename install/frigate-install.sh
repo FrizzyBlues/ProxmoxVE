@@ -187,7 +187,7 @@ EOF
   $STD apt install -qqy python-is-python3 g++
   $STD /opt/frigate/docker/tensorrt/detector/tensorrt_libyolo.sh
   cd /opt/frigate
-  export YOLO_MODELS="yolov4-tiny-288,yolov4-tiny-416,yolov7-tiny-416,yolov7-320"
+  export YOLO_MODELS="yolov7-320,yolov7x-640"
   export TRT_VER="$TRT_VER"
   $STD bash /opt/frigate/docker/tensorrt/detector/rootfs/etc/s6-overlay/s6-rc.d/trt-model-prepare/run
   cat <<EOF >>/config/config.yml
@@ -200,11 +200,11 @@ detectors:
     type: tensorrt
 #    device: 0
 model:
-  path: /config/model_cache/tensorrt/yolov7-tiny-416.trt
+  path: /config/model_cache/tensorrt/yolov7-320.trt
   input_tensor: nchw
   input_pixel_format: rgb
-  width: 416
-  height: 416
+  width: 320
+  height: 320
 EOF
   msg_ok "Installed TensorRT Object Detection Model (Patience)"
 elif grep -q -o -m1 -E 'avx[^ ]*' /proc/cpuinfo; then
